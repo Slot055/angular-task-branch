@@ -1,0 +1,88 @@
+<section class="content">            
+<div class="box box-success">
+<div class="box-body">
+<form method="post" autocomplete="off">
+
+<header class="header">
+<h1>
+<img src="https://sun9-26.userapi.com/c841123/v841123626/32eb6/Kznx8jAbfdQ.jpg" style="width:50%;">
+</h1>
+</header>
+
+<h3>Доступ к Bizon </h3>
+<div class="mb-15">
+<a 
+tuiButton
+type="button"
+href="http://bizon365.ru" 
+target="_blank"
+class="tui-space_right-3 tui-space_bottom-3">
+Перейти на Bizon
+</a>
+</div>
+<br>
+<input type="hidden" name="cmd" value="save">
+<div class="form-group">
+<label for="">E-mail</label>
+<tui-input formControlName1="email">
+Type an email
+<input tuiTextfield type="email" autocomplete="off" class="form-control" name="email" placeholder="Email" value="">
+</tui-input>
+</div>
+<div class="form-group">
+<label for="">API-токен</label>
+<tui-input formControlName2="secretkey">
+Type an secretkey
+<input tuiTextfield type="text" autocomplete="off" class="form-control" name="secretkey" placeholder="secretKey" value="">
+</tui-input>
+</div>
+<br>
+<div>
+<button
+    tuiButton
+    type="submit"
+    class="tui-space_right-3 tui-space_bottom-3"
+    (click)="onClick($event)">
+Сохранить
+</button>
+</div>
+</form>
+</div>
+</div>
+
+
+<h3>Где взять «API-токен»</h3>
+
+<tui-tiles
+    class="tiles"
+    [debounce]="500"
+    [(order)]="order"
+>
+    <tui-tile
+        *ngFor="let item of items; let index = index"
+        class="tile"
+        [style.order]="order.get(index)"
+        [width]="item.w"
+        [height]="item.h"
+    >
+        <div
+            class="content"
+            [class.rick]="item.content === 'rick'"
+        >
+            <iframe
+                *ngIf="item.content === 'rick'; else default"
+                src="https://www.youtube.com/embed/4Q9-v2L4h3U"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                class="rick"
+            ></iframe>
+           
+           
+            <ng-template #default>
+            </ng-template>
+        </div>
+    </tui-tile>
+</tui-tiles>
+ </section>
